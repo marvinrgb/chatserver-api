@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Message {
+  id Int @id @default(autoincrement())
+  text String @default("")
+  sender Int
+  recipient Int @default(0)
+  group Int @default(0)
+  time Int
+  type String @default("dm")
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  name String
+}
+
+model Group {
+  id Int @id @default(autoincrement())
+  name String
+}
+
+model UserInGroup {
+  id Int @id @default(autoincrement())
+  userid Int
+  groupid Int
+}

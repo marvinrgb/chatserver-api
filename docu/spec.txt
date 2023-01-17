@@ -1,0 +1,16 @@
+POST: /msg
+{text, recipient}
+
+GET: /chat
+
+GET: /chats
+
+GET: /all
+
+
+
+
+
+SOCKETS:
+'incoming_msg'
+{text, sender, time}
